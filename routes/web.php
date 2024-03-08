@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,7 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::prefix('/category')->controller(CategoryController::class)->name('category.')->group(function () {
     Route::get('/', 'index')->name('index');

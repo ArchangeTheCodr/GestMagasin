@@ -8,17 +8,33 @@
     @yield('title')
 </head>
 <body>
-    <div class="container">
-        <header class="d-flex justify-content-center py-3 shadow mb-4">
-            <ul class="nav nav-pills">
-                <li class="nav-item m-1"><a href="{{ route('category.index') }}" class="nav-link" aria-current="page">Categories</a></li>
-                <li class="nav-item m-1"><a href="{{ route('article.index') }}" class="nav-link">Articles</a></li>
-            </ul>
-        </header>
-    </div>
-    
-    <div class="container pt-2">
-        @yield('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary col-4" style="width: 280px;">
+
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                    <span class="fs-4">Sidebar</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="{{ route('home') }}" class="nav-link {{ Request::is('home') ? 'active' : 'link-body-emphasis' }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('category.index') }}" class="nav-link {{ Request::is('category') ? 'active' : 'link-body-emphasis' }}">Categories</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('article.index') }}" class="nav-link {{ Request::is('article') ? 'active' : 'link-body-emphasis' }}">Articles</a>
+                    </li></li>
+                </ul>
+            </div>
+
+            <div class="col-8 mt-5">
+                @yield('content')
+            </div>
+        </div>
+        
     </div>
     
 

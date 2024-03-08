@@ -21,10 +21,11 @@
         </div>
     @endif
 
-
-    <h1 class="my-3">Toutes nos categories</h1>
-    <a href="{{ route('category.create') }}" class="btn btn-primary">Nouvelle categorie</a>
-
+        <div class="d-flex justify-content-between my-3">
+            <h1>Toutes nos categories</h1>
+            <a href="{{ route('category.create') }}" class="btn btn-primary my-2">Nouvelle categorie</a>
+        </div>
+    
     <table class="table mt-3">
         <thead>
             <th>#</th>
