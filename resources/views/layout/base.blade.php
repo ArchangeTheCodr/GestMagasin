@@ -12,10 +12,25 @@
         <div class="row">
             <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary col-4" style="width: 280px;">
 
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                    <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                    <span class="fs-4">Sidebar</span>
-                </a>
+                <div class="d-flex">
+                    @if (Route::has('login'))
+                        <div>
+                            @auth
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <p>Bonjour, <strong>{{ auth()->user()->name }}</strong></p>
+                                    <button class="btn btn-secondary" type="submit">logout</button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}"  class="btn btn-secondary">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
+            </div>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
@@ -26,7 +41,10 @@
                     </li>
                     <li>
                         <a href="{{ route('article.index') }}" class="nav-link {{ Request::is('article') ? 'active' : 'link-body-emphasis' }}">Articles</a>
-                    </li></li>
+                    </li>
+                    <li>
+                    <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('user') ? 'active' : 'link-body-emphasis' }}">Utilisateurs</a>
+                    </li>
                 </ul>
             </div>
 
