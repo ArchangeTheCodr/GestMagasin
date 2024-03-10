@@ -17,7 +17,8 @@
                     @csrf
                     <div class="mb-3">
                       <label for="email" class="form-label">Email</label>
-                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entrer l'email">
+                      <p>
                     </div>
 
                     <div class="mb-3">

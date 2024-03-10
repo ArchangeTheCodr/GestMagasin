@@ -5,26 +5,12 @@
 @endsection
 
 @section('content')
-    @if(session('create'))
-        <div class="alert alert-success">
-            {{ session('create') }}
-        </div>
-    @endif
-    @if(session('update'))
-        <div class="alert alert-success">
-            {{ session('update') }}
-        </div>
-    @endif
-    @if(session('delete'))
-        <div class="alert alert-success">
-            {{ session('delete') }}
-        </div>
-    @endif
+    @include('partials.alert_action')
 
-        <div class="d-flex justify-content-between my-3">
-            <h1>Toutes nos categories</h1>
-            <a href="{{ route('category.create') }}" class="btn btn-primary my-2">Nouvelle categorie</a>
-        </div>
+    <div class="d-flex justify-content-between my-3">
+        <h1>Toutes nos categories</h1>
+        <a href="{{ route('category.create') }}" class="btn btn-primary my-2">Nouvelle categorie</a>
+    </div>
     
     <table class="table mt-3">
         <thead>
@@ -54,7 +40,4 @@
             @endforeach
         </tbody>
     </table>
-    <ul>
-        
-    </ul>
 @endsection

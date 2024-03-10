@@ -5,21 +5,8 @@
 @endsection
 
 @section('content')
-    @if(session('create'))
-        <div class="alert alert-success">
-            {{ session('create') }}
-        </div>
-    @endif
-    @if(session('update'))
-        <div class="alert alert-success">
-            {{ session('update') }}
-        </div>
-    @endif
-    @if(session('delete'))
-        <div class="alert alert-success">
-            {{ session('delete') }}
-        </div>
-    @endif
+    @include('partials.alert_action')
+
 
     <div class="d-flex justify-content-between mb-3">
         <h1>Tous les articles</h1>
@@ -29,7 +16,7 @@
         
             <div class="row">
                 @foreach ($articles as $article)
-                    @include('layout.article_card')
+                    @include('partials.article_card')
                 @endforeach
             </div>
         
