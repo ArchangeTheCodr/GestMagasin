@@ -25,7 +25,6 @@ class UserController extends Controller
     public function edit(User $user){
         return view('User.edit', compact('user'));
     }
-
     public function update(User $user, UserRequest $request){
         $user->update($request->validated());
         $user->save();

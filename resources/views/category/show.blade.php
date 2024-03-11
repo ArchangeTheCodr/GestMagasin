@@ -1,7 +1,7 @@
-@extends('layout.base')
+@extends('layouts.base')
 
 @section('title')
-    <title>Article home</title>
+    <title>Categorie {{ $category->name }}</title>
 @endsection
 
 @section('content')

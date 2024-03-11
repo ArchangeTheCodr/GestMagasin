@@ -45,6 +45,9 @@
                     <li>
                     <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('user') ? 'active' : 'link-body-emphasis' }}">Utilisateurs</a>
                     </li>
+                    <li>
+                        <a href="{{ route('role.index') }}" class="nav-link {{ Request::is('role') ? 'active' : 'link-body-emphasis' }}">Roles</a>
+                    </li>
                 </ul>
             </div>
 

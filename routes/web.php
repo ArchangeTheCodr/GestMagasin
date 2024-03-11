@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,12 @@ Route::prefix('/user')->controller(UserController::class)->name('user.')->group(
     Route::delete('/destroy/{id}', 'destroy')->name('destroy');
 });
 
+Route::prefix('/role')->controller(RoleController::class)->name('role.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/show/{role}', 'show')->name('show');
+    Route::get('create', 'create')->name('create');
+    Route::post('/create', 'store')->name('store');
+    Route::get('/edit/{role}', 'edit')->name('edit');
+    Route::post('/edit/{role}', 'update')->name('update');
+    Route::post('/destroy/{role}', 'destroy')->name('destroy');
+});
