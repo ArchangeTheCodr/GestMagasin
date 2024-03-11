@@ -30,9 +30,9 @@ class UserRequest extends FormRequest
                 'string',
                 'email',
                 'max:25',
-                Rule::unique('users')->ignore($this->route('id'))
+                Rule::unique('users')->ignore($this->user->id)
             ],
-            'password' => ['required', 'string', 'min:8', 'max:24',]
+            'password' => ['required', 'string', 'min:8', 'max:24',],
         ];
     }
 }

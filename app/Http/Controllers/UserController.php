@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Models\Role;
 class UserController extends Controller
 {
     Public function index(){
@@ -14,20 +15,30 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view('User.create');
+        return view('User.create',[
+            'roles' => Role::all()
+        ]);
     }
 
     public function store(UserRequest $request){
-        User::create($request->validated());
+        $user = User::create($request->validated());
+        $user->role_id = $request->role_id;
+        $user->save();
+
         return redirect()->route('user.index')->with('create', 'Utilisateur creer avec succes');
     }
 
     public function edit(User $user){
-        return view('User.edit', compact('user'));
+        return view('User.edit', compact('user'), [
+            'roles' => Role::all()
+        ]);
     }
+    
     public function update(User $user, UserRequest $request){
         $user->update($request->validated());
+        $user->role_id = $request->role_id;
         $user->save();
+
         return redirect()->route('user.index')->with('update', 'Informations utilisateur mis a jour avec succes');
     }
 

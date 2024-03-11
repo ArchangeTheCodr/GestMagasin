@@ -19,3 +19,11 @@
 @section('passwordInput')
     <input type="password" name="password" class="form-control" id="password">
 @endsection
+
+@section('roleSelect')    
+    <select name="role_id" id="" class="form-select">
+        @foreach($roles as $role)
+            <option value="{{ $role->id }}">{{ $role->name }}</option>
+        @endforeach
+    </select>
+@endsection

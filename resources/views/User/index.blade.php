@@ -17,6 +17,7 @@
             <th>#</th>
             <td><strong>Nom</strong></td>
             <td><strong>E-mail</strong></td>
+            <td><strong>Role</strong></td>
             <td colspan="2" class="text-center"><strong>Options</strong></td>
         </thead>
         <tbody>
@@ -28,6 +29,9 @@
                     </td>
                     <td> 
                         {{ $user->email }}
+                    </td>
+                    <td> 
+                        <a href="{{ route('role.show', ['role' => $user->role]) }}">{{ $user->role->name }}</a>
                     </td>
                     <td class="text-center" >
                         <a href="{{ route('user.edit', ['user' => $user]) }}" class="btn btn-secondary">Modifier</a>

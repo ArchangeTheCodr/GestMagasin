@@ -19,16 +19,6 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         @yield('nameInput')
-                    
-                        @if ($errors->any())
-                            <div class="alert alert-danger mt-1">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                     </div>
 
                     <div class="mb-3">
@@ -40,6 +30,21 @@
                         <label for="password" class="form-label">New password</label>
                         @yield('passwordInput')
                     </div>
+
+                    <div class="mb-3">
+                        <label for="role_id" class="form-label">Role</label>
+                        @yield('roleSelect')
+                    </div>
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger mt-1">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <input type="submit" class="btn btn-primary" value="Submit">
                 </form>

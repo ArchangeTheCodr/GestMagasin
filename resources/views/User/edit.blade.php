@@ -23,3 +23,15 @@
 @section('passwordInput')
     <input type="password" name="password" class="form-control" id="password">
 @endsection
+
+@section('roleSelect')
+    <select name="role_id" id="" class="form-select">
+        @foreach($roles as  $role)
+            @if ($role->name == $user->role->name)
+                <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
+            @else
+                <option value="{{ $role->id }}">{{ $role->name }}</option>
+            @endif   
+        @endforeach
+    </select>
+@endsection
