@@ -8,7 +8,7 @@
     @include('partials.alert_action')
 
     <div class="d-flex justify-content-between my-3">
-        <h1>Toutes nos categories</h1>
+        <h1>Toutes les categories</h1>
         <a href="{{ route('category.create') }}" class="btn btn-primary my-2">Nouvelle categorie</a>
     </div>
     

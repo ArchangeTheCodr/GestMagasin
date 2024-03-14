@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\PanierItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
-
+use App\Http\Controllers\PanierController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,16 @@ use App\Http\Controllers\RoleController;
 */
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
+
+Route::prefix('/panier')->controller(PanierController::class)->name('panier.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    // Route::get('/show/{id}', 'show')->name('show');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/create', 'store')->name('store');
+    // Route::get('/edit/{id}', 'edit')->name('edit');
+    // Route::patch('/edit/{id}', 'update')->name('update');
+    // Route::delete('/destroy/{id}', 'destroy')->name('destroy');
+});
 
 Route::prefix('/category')->controller(CategoryController::class)->name('category.')->group(function () {
     Route::get('/', 'index')->name('index');

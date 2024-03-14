@@ -34,6 +34,9 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
+                        <a href="{{ route('panier.index') }}" class="nav-link {{ Request::is('panier') ? 'active' : 'link-body-emphasis' }}">Ventes</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('home') }}" class="nav-link {{ Request::is('home') ? 'active' : 'link-body-emphasis' }}">Home</a>
                     </li>
                     <li>
@@ -60,5 +63,6 @@
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 </html>
