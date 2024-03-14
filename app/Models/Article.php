@@ -19,6 +19,10 @@ class Article extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function items(){
+        return $this->hasMany(PanierItem::class);
+    }
+
     public function getImageUrl(){
         return Storage::url($this->image_uri);
     }
